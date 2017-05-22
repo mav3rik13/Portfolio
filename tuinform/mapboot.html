@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TUinform</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<link rel="icon" href="../../favicon.ico">
+	
+	<!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/nav.css" rel="stylesheet">
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	<script type="text/javascript">
+var map;
+
+
+function initialize() {
+	//var locations="<?php echo $markers; ?>";
+	var myLatlng = new google.maps.LatLng(39.981, -75.155);
+  var mapOptions = {
+    zoom: 16,
+    center: new google.maps.LatLng(39.981, -75.155)
+  };
+  
+  
+  
+  
+  
+  var locations = [
+	[39.978,-75.155],
+	[39.984, -75.152],
+	[39.983, -75.155]
+	];
+	
+	
+	
+	//locations= <?php echo json_encode($markers)?>;
+	
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+	  
+
+  var marker, i;
+  
+  for (i = 0; i <= locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+      });}
+}
+
+
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+    
+  </head>
+  <body>
+	<div class="masthead">
+        <h3 class="text-muted"><center>TUinform</center></h3>
+        <nav>
+         <ul class="nav nav-pills">
+         	 <li role="presentation"><a href="php/logout.php">Logout</a></li>
+ 			 <li role="presentation"><a href="mainboot.html">Report</a></li>
+  			 <li role="presentation" class="active"><a href="#">Map</a></li>
+  			 <li role="presentation"><a href="webcam.html">Webcam</a></li>
+		</ul>
+        </nav>
+      </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>

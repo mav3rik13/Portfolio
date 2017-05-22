@@ -1,0 +1,7 @@
+header("Access-Control-Allow-Origin: *");
+        define(DB_HOST, "cis-linux2.temple.edu");
+        define(DB_USER, "tuf08921");
+        define(DB_PASSWORD, "keihairi");
+        define(DB_DATABASE, "SP15_2305_tuf08921");
+?>
+
