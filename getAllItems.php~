@@ -1,0 +1,40 @@
+<?php
+	session_start();
+	require_once("config.php");
+
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	if (!$link) { die("DB connection failed".mysql_error()); }
+
+	if (!$link) { die("Unable to select database");};
+
+	
+
+	$query = "SELECT * from item;";
+	$result = mysqli_query($link,$query);
+
+	if ($result->num_rows > 0)	{
+		while($row = $result->fetch_assoc()){
+			$seller.=':'.$row["seller"];
+			$price.=':'.$row["price"];
+			$name.=':'.$row["name"];
+			$description.=':'.$row["description"];
+			$rating.=':'.$row["uRating"];
+			$lat.=':'.$row["lat"];
+			$lng.=':'.$row["lng"];
+			$type.=':'.$row["type"];
+			$id.=':'.$row["id"];
+			$end.=':'.$row["edate"];
+		}
+
+	} else{
+
+		$_SESSION["Status"] = -1;
+		die("Query failed".mysql_error());
+	}
+
+?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<user>
+	<?php echo $name." ".$description." ".$seller." ".$price." ".$rating." ".$lat." ".$lng." ".$type." ".$id." ".$end  ?>
+</user>

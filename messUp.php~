@@ -1,0 +1,16 @@
+<?php
+	session_start();
+	require_once("config.php");
+
+	$id=$_GET["id"];
+
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	
+
+		$query= "Update message set rRat = '1' where ismessage='$id'";
+		$result = mysqli_query($link,$query);
+		
+	
+
+
+?>

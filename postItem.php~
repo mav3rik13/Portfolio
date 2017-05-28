@@ -1,0 +1,26 @@
+<?php
+	session_start();
+	require_once("config.php");
+
+	$name=$_GET["inputName"];
+	$description=$_GET["inputDescription"];
+	$price=$_GET["inputPrice"];
+	$user=$_GET["seller"];
+	$type=$_GET["type"];
+	$rating=$_GET["rating"];
+	$lat=$_GET["lat"];
+	$lng=$_GET["lng"];
+	$date=$_GET["date"];
+	$edate=$_GET["edate"];
+
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	//$query = "SELECT * from User WHERE userName='$uName' and Password= '$Paswd';";
+	//$result = mysqli_query($link,$query);
+	
+	//if ($result)	{
+		$query = "INSERT INTO item (name, description, price, seller, type, uRating, lat, lng, date, edate) values ('$name', '$description', '$price', '$user', '$type', '$rating', '$lat', '$lng', '$date', '$edate')";
+		$result = mysqli_query($link,$query);
+	//}
+
+
+?>

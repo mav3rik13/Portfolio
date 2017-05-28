@@ -1,0 +1,21 @@
+<?php
+	session_start();
+	require_once("config.php");
+
+	$sender=$_GET["sender"];
+	$text=$_GET["text"];
+	$receiver=$_GET["receiver"];
+	$item=$_GET["item"];
+	$rating=$_GET["rating"];
+
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	//$query = "SELECT * from User WHERE userName='$uName' and Password= '$Paswd';";
+	//$result = mysqli_query($link,$query);
+	
+	//if ($result)	{
+		$query = "INSERT INTO message (sender, text, receiver, item, sRating) values ('$sender', '$text', '$receiver', '$item', '$rating')";
+		$result = mysqli_query($link,$query);
+	//}
+
+
+?>

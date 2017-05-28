@@ -1,0 +1,1 @@
+App designed to act as a strobe light that flashes in synch with any song. Currently works for any song on the users phone, working with the microphone is a work in progress.  This is something that I worked on in my free time.

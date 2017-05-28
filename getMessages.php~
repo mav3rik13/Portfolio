@@ -1,0 +1,40 @@
+<?php
+	session_start();
+	require_once("config.php");
+
+	$link = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
+	if (!$link) { die("DB connection failed".mysql_error()); }
+
+	if (!$link) { die("Unable to select database");};
+
+	$user=$_GET["user"];
+
+	$query = "SELECT * from message WHERE receiver='$user';";
+	$result = mysqli_query($link,$query);
+
+	if ($result->num_rows > 0)	{
+		while($row = $result->fetch_assoc()){
+			$sender.=';'.$row["sender"];
+			$text.=';'.$row["text"];
+			$item.=';'.$row["item"];
+			$rating.=';'.$row["sRating"];
+			$ratings.=';'.$row["sRatings"];
+			$id.=';'.$row["idmessage"];
+			$rrat.=';'.$row["rRat"];
+			$srat.=';'.$row["sRat"];
+						
+		}
+
+	} else{
+
+		$_SESSION["Status"] = -1;
+		die("Query failed".mysql_error());
+	}
+
+?>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<user>
+	<?php echo $sender.' '.$text.' '.$item.' '.$rating.' '.$ratings.' '.$id.' '.$rrat  ?>
+</user>
+

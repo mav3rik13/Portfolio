@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.maverick.lightshow"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="19" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
+	<uses-permission android:name="android.permission.WAKE_LOCK" />
+	<uses-permission android:name="android.permission.RECORD_AUDIO"/>
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+	
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera.flash" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/strobe_logo"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.maverick.lightshow.MainActivity"
+            android:label="@string/app_name" 
+            android:launchMode="singleTop">
+        </activity>
+        <activity
+            android:name="com.maverick.lightshow.Lghts"
+            android:label="@string/title_activity_lghts">
+        </activity>
+        <activity
+            android:name="com.maverick.lightshow.settings"
+            android:label="@string/title_activity_settings">
+        </activity>
+       
+        <activity 
+            android:name="com.maverick.lightshow.Home"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            </activity>
+        <service android:name="com.Maverick.Lightshow.MusicService" />
+        
+    </application>
+
+</manifest>

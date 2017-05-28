@@ -1,0 +1,13 @@
+The following shell has the commands cd, clr, dir, environ, echo, help, and quit.
+I/O redirection must be done at the end of the call, with < for stdin, and > for stdout, they can be in either order
+cd <directory> changes the working directory to <directory>
+clr clears the screen
+dir <directory> prints the contents of <directory> to the screen
+environ prints the enviroment strings
+echo repeats back the parameter to the shell
+help displays help strings
+quit exits the shell
+piping can be done with a "|" between commands
+can take a file as a command line argument instead of from the keyboard, but the shell assumes there is no formatting in the file, and that it contains only valid commands
+
+This was done as a class assignment.
