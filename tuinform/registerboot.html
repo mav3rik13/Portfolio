@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+
+    <title>Register to use TUinform</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/signin.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  	<script>
+	function checkForm(form)
+	{ 
+		if(form.inputEmail.value=="") {
+			alert("Error: username cannot be blank");
+			form.inputEmail.focus(); 
+			return false;
+		}
+
+		if (form.inputPassword.value !="" && form.inputPassword.value == form.inputPassword2.value) {
+			if(form.inputPassword.value.length < 4) {
+				alert("Error: Password must contain at least 4 chaaracters");
+				form.pwd1.focus();
+				return false;
+			}
+			if (form.inputPassword.value == form.inputEmail.value) {
+				alert("Error: Password must be different form Username!");
+				form.pwd1.focus();
+				return false;
+			}
+		} else {
+			alert("Error:Please check that you have entered and confirmed your password");
+			form.inputPassword.focus();
+			return false;
+		}
+		return true;
+	}
+	</script>
+  </head>
+
+  <body>
+
+    <div class="container">
+	  <h1> <center> TUinform </center> </h1>
+      <form class="form-register"  onsubmit="return checkForm(this);"  action="php/registration.php" method="post">
+        <h2 class="form-reg-heading">Please Register</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" name="inputEmail" class="form-control" placeholder="Email address" required autofocus><br>
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="inputPassword" class="form-control" placeholder="Password" required><br>
+        
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword2" name="inputPassword2" class="form-control" placeholder="Please Confirm Password" required><br>
+       
+        <button class="btn btn-lg btn-primary btn-block" type="submit"> Register </button>
+        <br>
+        <a href="loginboot.html">
+        <button class="btn btn-lg btn-primary btn-block" type="button"> Go Back </button>
+        </a>
+      </form>
+
+    </div> <!-- /container -->
+
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  </body>
+</html>

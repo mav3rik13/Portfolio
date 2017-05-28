@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Bazaar</string>
+    <string name="title_activity_menu">menu</string>
+    <string name="title_activity_test">Map</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
